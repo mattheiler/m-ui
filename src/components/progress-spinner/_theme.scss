@@ -1,0 +1,12 @@
+@import "../../../styles/theming";
+
+@mixin mui-progress-spinner-theme($config) {
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-progress-spinner",
+        (
+            foreground: mui-color($primary),
+        )
+    );
+}

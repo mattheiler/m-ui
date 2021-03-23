@@ -1,0 +1,19 @@
+@import './theming';
+@import './palette';
+
+@import '../src/components/theme';
+
+@function mui-theme-config($primary, $warning, $disabled, $background) {
+    @return (
+        background: $background,
+        disabled: $disabled,
+        primary: $primary,
+        warning: $warning,
+    );
+}
+
+@mixin mui-theme($config: mui-theme-config($mui-raspberry, $mui-red, $mui-grey, $mui-grey-lighter)) {
+    @include --mui-theme($config);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

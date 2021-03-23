@@ -1,0 +1,28 @@
+@import "../../../styles/layouts";
+
+@mixin mui-form-field-control() {
+    background-color: var(--mui-form-field-background, white);
+    border: 1px solid var(--mui-form-field-foreground, gray);
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    max-width: 100%;
+    min-height: 32px;
+    padding: 4px;
+    width: 100%;
+
+    @include mui-flex();
+    @include mui-flex-align(center, center);
+
+    &.disabled {
+        background-color: var(--mui-form-field-disabled-background, gray);
+        border-color: var(--mui-form-field-disabled-foreground, transparent);
+        color: var(--mui-form-field-disabled-foreground, default);
+    }
+
+    &.focused {
+        border-color: var(--mui-form-field-focused-foreground, transparent);
+    }
+
+    @content;
+}

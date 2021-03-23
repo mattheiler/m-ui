@@ -1,0 +1,58 @@
+@import "../../../styles/theming";
+
+@mixin mui-button-theme($config) {
+    $disabled: map-get($config, disabled);
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-button",
+        (
+            background: none,
+            foreground: mui-color($primary, 500),
+            disabled: (
+                background: mui-color($disabled, 200),
+                foreground: mui-contrast($disabled, 200),
+            ),
+            focus: (
+                background: rgba(mui-color($primary, 500), 0.12),
+                foreground: mui-color($primary, 500),
+            ),
+            hover: (
+                background: rgba(mui-color($primary, 500), 0.12),
+                foreground: mui-color($primary, 500),
+            ),
+            icon: (
+                background: none,
+                foreground: mui-color($primary, 500),
+                disabled: (
+                    background: none,
+                    foreground: mui-contrast($disabled, 200),
+                ),
+                focus: (
+                    background: rgba(mui-color($primary, 500), 0.12),
+                    foreground: mui-color($primary, 500),
+                ),
+                hover: (
+                    background: rgba(mui-color($primary, 500), 0.12),
+                    foreground: mui-color($primary, 500),
+                ),
+            ),
+            solid: (
+                background: mui-color($primary),
+                foreground: mui-contrast($primary),
+                disabled: (
+                    background: mui-color($primary, 200),
+                    foreground: mui-contrast($primary, 200),
+                ),
+                focus: (
+                    background: mui-color($primary, 700),
+                    foreground: mui-contrast($primary, 700),
+                ),
+                hover: (
+                    background: mui-color($primary, 700),
+                    foreground: mui-contrast($primary, 700),
+                ),
+            ),
+        )
+    );
+}

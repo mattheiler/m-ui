@@ -1,0 +1,5 @@
+@import "../../../styles/theming";
+
+@mixin mui-toast-theme($config) {
+    @include mui-variablize("mui-toast", ());
+}

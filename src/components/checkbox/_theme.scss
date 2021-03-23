@@ -1,0 +1,27 @@
+@import "../../../styles/theming";
+
+@mixin mui-checkbox-theme($config) {
+    $background: map-get($config, background);
+    $disabled: map-get($config, disabled);
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-checkbox",
+        (
+            background: mui-color($background, 900),
+            foreground: mui-contrast($background, 900),
+            marked: (
+                background: mui-color($primary),
+                foreground: mui-contrast($primary),
+            ),
+            disabled: (
+                background: mui-color($disabled, 200),
+                foreground: mui-color($disabled, 200),
+                marked: (
+                    background: mui-color($primary, 200),
+                    foreground: mui-color($primary, 100),
+                ),
+            ),
+        )
+    );
+}

@@ -1,0 +1,25 @@
+@mixin mui-variablize($path, $config) {
+    @each $key in map-keys($config) {
+        $value: map-get($config, $key);
+        @if (type-of($value) == "map") {
+            @include mui-variablize("#{$path}-#{$key}", $value);
+        } @else {
+            --#{$path}-#{$key}: #{$value};
+        }
+    }
+}
+
+@function mui-contrast($palette, $hue: 500) {
+    @return map-get(map-get($palette, contrast), $hue);
+}
+
+@function mui-color($palette, $hue: 500, $opacity: null) {
+    @if type-of($hue) == number and $hue >= 0 and $hue <= 1 {
+        @return mui-color($palette, 500, $hue);
+    }
+
+    $color: map-get($palette, $hue);
+    $opacity: if($opacity == null, opacity($color), $opacity);
+
+    @return rgba($color, $opacity);
+}

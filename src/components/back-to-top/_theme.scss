@@ -1,0 +1,13 @@
+@import "../../../styles/theming";
+
+@mixin mui-back-to-top-theme($config) {
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-back-to-top",
+        (
+            background: mui-color($primary),
+            foreground: mui-contrast($primary),
+        )
+    );
+}

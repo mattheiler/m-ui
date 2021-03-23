@@ -1,0 +1,39 @@
+$flex-aliases: (
+    grow: 1 1 100%,
+    initial: 0 1 auto,
+    auto: 1 1 100%,
+    none: 0 0 auto,
+    nogrow: 0 1 auto,
+    noshrink: 1 0 auto,
+);
+$flex-alignments: (
+    stretch: stretch,
+    center: center,
+    start: flex-start,
+    end: flex-end,
+    space-between: space-between,
+    space-around: space-around,
+    initial: initial,
+    inherit: inherit,
+);
+
+@mixin mui-flex($direction: row, $inline: null) {
+    display: if($inline == inline, inline-flex, flex);
+    @if (direction != row) {
+        flex-direction: $direction;
+    }
+}
+
+@mixin mui-flex-align($main-axis: start, $cross-axis: start) {
+    align-content: map-get($flex-alignments, $cross-axis);
+    align-items: map-get($flex-alignments, $cross-axis);
+    justify-content: map-get($flex-alignments, $main-axis);
+}
+
+@mixin mui-flex-item($alias: initial) {
+    flex: map-get($flex-aliases, $alias);
+}
+
+@mixin mui-flex-item-align($value) {
+    align-self: map-get($flex-alignments, $value);
+}

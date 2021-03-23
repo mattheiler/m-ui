@@ -1,0 +1,31 @@
+@import "../../../styles/theming";
+
+@mixin mui-menu-theme($config) {
+    $background: map-get($config, background);
+    $disabled: map-get($config, disabled);
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-menu",
+        (
+            background: mui-color($background, 100),
+            foreground: mui-contrast($background, 100),
+            item: (
+                background: none,
+                foreground: mui-color($primary, 500),
+                disabled: (
+                    background: mui-color($disabled, 200),
+                    foreground: mui-contrast($disabled, 200),
+                ),
+                focus: (
+                    background: rgba(mui-color($primary, 500), 0.12),
+                    foreground: mui-color($primary, 500),
+                ),
+                hover: (
+                    background: rgba(mui-color($primary, 500), 0.12),
+                    foreground: mui-color($primary, 500),
+                ),
+            ),
+        )
+    );
+}

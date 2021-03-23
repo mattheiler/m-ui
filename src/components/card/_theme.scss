@@ -1,0 +1,13 @@
+@import "../../../styles/theming";
+
+@mixin mui-card-theme($config) {
+    $background: map-get($config, background);
+
+    @include mui-variablize(
+        "mui-card",
+        (
+            background: mui-color($background, 100),
+            foreground: mui-contrast($background, 100),
+        )
+    );
+}

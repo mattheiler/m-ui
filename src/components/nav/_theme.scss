@@ -1,0 +1,5 @@
+@import "../../../styles/theming";
+
+@mixin mui-nav-theme($config) {
+    @include mui-variablize("mui-nav", ());
+}

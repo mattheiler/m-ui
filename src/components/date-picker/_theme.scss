@@ -1,0 +1,36 @@
+@import "../../../styles/theming";
+
+@mixin mui-date-picker-theme($config) {
+    $background: map-get($config, background);
+    $disabled: map-get($config, disabled);
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-calendar",
+        (
+            today: (
+                background: mui-color($background, 200),
+                foreground: mui-contrast($disabled, 200),
+            ),
+            between: (
+                background: mui-color($primary, 200),
+                foreground: mui-contrast($primary, 200),
+            ),
+            selected: (
+                background: mui-color($primary),
+                foreground: mui-contrast($primary),
+            ),
+            disabled: (
+                // background: mui-color($disabled, 200),
+                foreground: mui-color($disabled, 200),
+            ),
+        )
+    );
+    @include mui-variablize(
+        "mui-date-picker",
+        (
+            background: white,
+            foreground: black,
+        )
+    );
+}

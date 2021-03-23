@@ -1,0 +1,23 @@
+@import "../../../styles/theming";
+
+@mixin mui-forms-theme($config) {
+    $background: map-get($config, background);
+    $disabled: map-get($config, disabled);
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-form-field",
+        (
+            background: white,
+            foreground: darkgray,
+            disabled: (
+                background: mui-color($disabled, 50),
+                foreground: mui-color($disabled, 200),
+            ),
+            focused: (
+                background: white,
+                foreground: mui-color($primary),
+            ),
+        )
+    );
+}

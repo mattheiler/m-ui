@@ -1,0 +1,30 @@
+@import "../../../styles/theming";
+
+@mixin mui-expander-theme($config) {
+    $background: map-get($config, background);
+    $disabled: map-get($config, disabled);
+
+    @include mui-variablize(
+        "mui-expander",
+        (
+            header: (
+                background: mui-color($background, 200),
+                foreground: mui-contrast($background, 200),
+                focus: (
+                    background: mui-color($background, 300),
+                    foreground: mui-contrast($background, 300),
+                ),
+                hover: (
+                    background: mui-color($background, 300),
+                    foreground: mui-contrast($background, 300),
+                ),
+            ),
+            disabled: (
+                header: (
+                    background: mui-color($disabled, 200),
+                    foreground: mui-contrast($disabled, 200),
+                ),
+            ),
+        )
+    );
+}

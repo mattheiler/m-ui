@@ -1,0 +1,14 @@
+@import "../../../styles/theming";
+
+@mixin mui-progress-bar-theme($config) {
+    $background: map-get($config, background);
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-progress-bar",
+        (
+            background: mui-color($background),
+            foreground: mui-color($primary),
+        )
+    );
+}

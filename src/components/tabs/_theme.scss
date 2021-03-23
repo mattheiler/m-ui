@@ -1,0 +1,29 @@
+@import "../../../styles/theming";
+
+@mixin mui-tabs-theme($config) {
+    $background: map-get($config, background);
+    $disabled: map-get($config, disabled);
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-tab",
+        (
+            background: none,
+            border: lightgray,
+            // mui-color($background, 500),
+            foreground: default,
+            active: (
+                background: mui-color($background, 200),
+                foreground: mui-color($primary),
+            ),
+            disabled: (
+                background: lightgray,
+                foreground: gray,
+                active: (
+                    background: mui-color($primary, 100),
+                    foreground: mui-contrast($primary, 100),
+                ),
+            ),
+        )
+    );
+}

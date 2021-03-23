@@ -1,0 +1,27 @@
+@import "../../../styles/theming";
+
+@mixin mui-time-picker-theme($config) {
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-time-picker",
+        (
+            head: (
+                background: mui-color($primary),
+                foreground: mui-contrast($primary),
+            ),
+        )
+    );
+
+    @include mui-variablize(
+        "mui-clock",
+        (
+            background: #ddd,
+            foreground: default,
+            hand: (
+                background: mui-color($primary),
+                foreground: mui-contrast($primary),
+            ),
+        )
+    );
+}

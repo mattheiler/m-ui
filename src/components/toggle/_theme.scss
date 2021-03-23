@@ -1,0 +1,28 @@
+@import "../../../styles/theming";
+
+@mixin mui-toggle-theme($config) {
+    $disabled: map-get($config, disabled);
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-toggle",
+        (
+            selected: (
+                background: mui-color($primary),
+                foreground: mui-contrast($primary),
+                focus: (
+                    background: mui-color($primary, 700),
+                    foreground: mui-contrast($primary),
+                ),
+            ),
+            disabled: (
+                background: mui-color($disabled, 200),
+                foreground: mui-contrast($disabled, 200),
+                selected: (
+                    background: mui-color($primary, 200),
+                    foreground: mui-contrast($primary, 200),
+                ),
+            ),
+        )
+    );
+}

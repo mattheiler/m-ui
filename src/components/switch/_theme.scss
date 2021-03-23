@@ -1,0 +1,29 @@
+@import "../../../styles/theming";
+
+@mixin mui-switch-theme($config) {
+    $background: map-get($config, background);
+    $disabled: map-get($config, disabled);
+    $primary: map-get($config, primary);
+
+    @include mui-variablize(
+        "mui-switch",
+        (
+            foreground: mui-contrast($background),
+            track-background: mui-color($background, 400),
+            thumb-background: mui-color($background),
+            checked: (
+                track-background: mui-color($primary, 300),
+                thumb-background: mui-color($primary),
+            ),
+            disabled: (
+                foreground: mui-color($disabled, 200),
+                track-background: mui-color($disabled, 100),
+                thumb-background: mui-color($disabled, 200),
+                checked: (
+                    track-background: mui-color($primary, 100),
+                    thumb-background: mui-color($primary, 200),
+                ),
+            ),
+        )
+    );
+}
